@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cusdsqvjg5ksm"
+path="res://.godot/imported/Good Ending Loop.wav-acd5e8f5f488b00b26e171ca70e24dbe.sample"
+
+[deps]
+
+source_file="res://sounds/Good Ending Loop.wav"
+dest_files=["res://.godot/imported/Good Ending Loop.wav-acd5e8f5f488b00b26e171ca70e24dbe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c40sf3u2tpkd3"]
+
+[ext_resource type="Texture2D" uid="uid://cjqgeasbdxtg" path="res://sprites/player/sprites.png" id="1_50u1q"]
+[ext_resource type="Script" uid="uid://bedlbskugyheb" path="res://scripts/boss/star.gd" id="1_gkwfb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkwfb"]
+atlas = ExtResource("1_50u1q")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqs4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkwfb")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2e0m"]
+size = Vector2(12, 12)
+
+[node name="Star" type="Area2D"]
+script = ExtResource("1_gkwfb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fqs4g")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p2e0m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

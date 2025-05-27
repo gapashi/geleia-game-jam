@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4svcl2qcj4lj"]
+
+[ext_resource type="Script" uid="uid://jcu30nx4fjie" path="res://scripts/management/menu.gd" id="1_hqxb8"]
+[ext_resource type="Texture2D" uid="uid://uwlfmxd3cwc" path="res://sprites/background/menu (1).png" id="2_gejb1"]
+[ext_resource type="PackedScene" uid="uid://c2qhbyw3mbs66" path="res://scenes/management/background.tscn" id="2_hqxb8"]
+[ext_resource type="Texture2D" uid="uid://bepfvjfembmg7" path="res://sprites/itens/botao_play.png" id="4_ouw2q"]
+[ext_resource type="Texture2D" uid="uid://csj2rwkx06boa" path="res://sprites/itens/botao_control.png" id="5_ko3y8"]
+[ext_resource type="Texture2D" uid="uid://ck6a6b65idjb8" path="res://sprites/itens/botao_creditos.png" id="6_1vx3l"]
+[ext_resource type="Texture2D" uid="uid://c0hnob6bqmkfx" path="res://sprites/itens/botao_sair.png" id="7_jfgl8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqxb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gejb1")
+centered = false
+
+[node name="Background" parent="." instance=ExtResource("2_hqxb8")]
+visible = false
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = -179.0
+offset_right = 51.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PlayGame" type="Button" parent="MainContainer/ButtonsContainer/Buttons"]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("4_ouw2q")
+flat = true
+
+[node name="Controls" type="Button" parent="MainContainer/ButtonsContainer/Buttons"]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("5_ko3y8")
+flat = true
+
+[node name="Credits" type="Button" parent="MainContainer/ButtonsContainer/Buttons"]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("6_1vx3l")
+flat = true
+
+[node name="Exit" type="Button" parent="MainContainer/ButtonsContainer/Buttons"]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("7_jfgl8")
+flat = true
+
+[connection signal="pressed" from="MainContainer/ButtonsContainer/Buttons/PlayGame" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/Buttons/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonsContainer/Buttons/Exit" to="." method="_on_exit_pressed"]

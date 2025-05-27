@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2qhbyw3mbs66"]
+
+[ext_resource type="Script" uid="uid://d2ltke01fn0b7" path="res://scripts/management/background.gd" id="1_f8x6a"]
+[ext_resource type="Texture2D" uid="uid://u0yhvs03njwa" path="res://sprites/background/cenario-2.png" id="2_f8x6a"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_f8x6a")
+
+[node name="Layer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(256, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer"]
+texture = ExtResource("2_f8x6a")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Layer"]
+position = Vector2(512, 0)
+texture = ExtResource("2_f8x6a")
+centered = false

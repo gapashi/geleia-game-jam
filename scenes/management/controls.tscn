@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://esq1dvxidae7"]
+
+[ext_resource type="Script" uid="uid://cim1scqxaw52w" path="res://scripts/management/controls.gd" id="1_5wsm2"]
+[ext_resource type="PackedScene" uid="uid://c2qhbyw3mbs66" path="res://scenes/management/background.tscn" id="1_a2csu"]
+[ext_resource type="Texture2D" uid="uid://cp2pq7g56dtvs" path="res://sprites/itens/botao_menu.png" id="3_h065d"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wsm2")
+
+[node name="Background" parent="." instance=ExtResource("1_a2csu")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.5
+offset_right = 99.5
+offset_bottom = 199.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 0
+text = "CONTROLS
+up: arrow up | W
+down: arrow down | S
+left: arrow left | A
+right: arrow right | D
+attack: left mouse button | F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_left = 177.0
+offset_top = 185.0
+offset_right = 225.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 10
+icon = ExtResource("3_h065d")
+flat = true
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://lfhww37aprna"]
+
+[ext_resource type="Script" uid="uid://bepuuexj0wm7m" path="res://scripts/boss/finger.gd" id="1_4xh66"]
+[ext_resource type="Texture2D" uid="uid://dp0uexan6mhli" path="res://sprites/player/Sprite_001.png" id="2_4xh66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_875ka"]
+atlas = ExtResource("2_4xh66")
+region = Rect2(128, 32, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_875ka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_875ka")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv1pn"]
+size = Vector2(14, 6.01133)
+
+[node name="Finger" type="Area2D"]
+rotation = -3.12985
+script = ExtResource("1_4xh66")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.229323, -0.995704)
+rotation = 3.12217
+scale = Vector2(0.541152, 0.52755)
+sprite_frames = SubResource("SpriteFrames_875ka")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.017614)
+shape = SubResource("RectangleShape2D_sv1pn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

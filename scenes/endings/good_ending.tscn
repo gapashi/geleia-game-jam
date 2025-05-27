@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsppsmfv6u7hg"]
+
+[ext_resource type="AudioStream" uid="uid://cusdsqvjg5ksm" path="res://sounds/Good Ending Loop.wav" id="1_dv3u5"]
+[ext_resource type="Script" uid="uid://dovcq8gkaxbur" path="res://scripts/endings/good_ending.gd" id="1_knrpt"]
+[ext_resource type="Texture2D" uid="uid://d4hswmuba5gjv" path="res://sprites/endings/final_bom.png" id="2_p1psx"]
+[ext_resource type="Texture2D" uid="uid://cp2pq7g56dtvs" path="res://sprites/itens/botao_menu.png" id="4_8k2pj"]
+
+[node name="GoodEnding" type="ParallaxBackground"]
+script = ExtResource("1_knrpt")
+
+[node name="Layer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer"]
+texture_filter = 1
+position = Vector2(128.5, 127.5)
+scale = Vector2(0.199219, 0.199219)
+texture = ExtResource("2_p1psx")
+
+[node name="GoodEndingAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_dv3u5")
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 219.0
+offset_right = 54.0
+offset_bottom = 247.0
+icon = ExtResource("4_8k2pj")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
